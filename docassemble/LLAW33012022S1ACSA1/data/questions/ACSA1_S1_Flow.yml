@@ -54,5 +54,64 @@ fields:
     minlength: 10
     maxlength: 10
 ---
-  
-  
+# Confirm the client's detail in this page (except the email address)
+mandatory: True
+question: Confirm your client's detail
+subquestion: |
+  Client's information
+## Add table here summarising client's information. 
+---
+mandatory: True
+question: Appointments Dates
+subquestion: |
+  Please select appointments dates.
+fields:
+  - First Appointment Date: ACdate1
+    datatype: date
+  - Second Appointment Date: ACdate2
+    datatype: date
+  - Third Appointment Date: ACdate3
+    datatype: date
+  - Fourth Appointment Date: ACdate4
+    datatype: date
+  - Fifth Appointment Date: ACdate5
+    datatype: date
+  - Sixth Appointment Date: ACdate6
+    datatype: date
+## Double check the date and time fields
+---
+# Confirm the client's appointments dates
+mandatory: True
+question: Confirming client's appointments. 
+subquestion: |
+## Insert a table summarising the appointment type. 
+---
+# Confirm the email address again 
+mandatory: True
+question: Email address confirmation 
+subquestion: |
+## Insert the email address here
+  Is this correct email address?
+yesno: ASemailapproval
+---
+# Emailing and Downloading the file
+mandatory: True
+question: Please find your attachment
+subquestion: |
+## Coding for Emailing here
+  Please find summary document for your reference. 
+attachement: 
+  name: what is it?
+  filename: filename
+  docx template file: template name.docx
+  valid formats:
+    - pdf
+---
+mandatory: True
+code: |
+  if user_approves: 
+    success_screen
+  else:
+    fail_screen
+    
+    
