@@ -1,37 +1,37 @@
 ---
-objects:
-  - event: Appointment
-  - user: Individual
-  - attendees: Individual
+modules:
+  - .calendar
 ---
-mandatory: true 
+objects:
+  - event: Thing
+  - user: Individual
+  - attendees: DAList.using(object_type=Individual)
+---
 question: |
   Enter your AnglicareSA login.
 fields:
-  - Name: user.name.text
+  - First Name: user.name.first
+  - Last Name: user.name.last
   - E-mail: user.email
     datatype: email
 ---
-mandatory: true
 question: |
   Would you like to invite any clients?
 yesno: attendees.there_are_any
 ---
-mandatory: true
 question: |
   Enter client information.
 fields:
-  - Case Number: attendees.case
-  - Name: attendees.name.text
-  - E-mail: attendees.email
+  - Case Number: attendees[i].case
+  - First Name: attendees[i].name.first
+  - Last Name: attendees[i].name.last
+  - E-mail: attendees[i].email
     datatype: email
 ---
-mandatory: true
 question: |
-  Are there any more clients besides ${ attendees.name.text }?
+  Are there any more clients besides ${ attendees }?
 yesno: attendees.there_is_another
 ---
-mandatory: true
 question: |
   Enter apppointment information.
 fields:
@@ -49,4 +49,71 @@ fields:
   - Description: event.description
     input type: area
     required: False
+validation code: |
+  if event.end_date < event.begin_date:
+    raise DAValidationError('The end date must be on or after the start date.', field='event.end_date')
+  if event.end_date.replace_time(event.end_time) < event.begin_date.replace_time(event.begin_time):
+    raise DAValidationError('The end time must be after the start time.', field='event.end_time')
+---
+template: email_template
+subject: |
+  ${ event.title }
+content: |
+  You are invited to ${ event.title } \
+  % if event.location:
+  at ${ event.location } \
+  % endif
+  from \
+  % if event.begin_date == event.end_date:
+  ${ format_time(event.begin_time, 'hh:mm a') } to \
+  ${ format_time(event.end_time, 'hh:mm a') } \
+  on ${ event.begin_date }.
+  % else:
+  ${ format_time(event.begin_time, 'hh:mm a') } \
+  on ${ event.begin_date } to \
+  ${ format_time(event.end_time, 'hh:mm a') } \
+  on ${ event.end_date }.
+  % endif
+  % if event.description:
+
+  ${ event.description }
+  % endif
+---
+code: |
+  ics_file = make_event(title=event.title,
+                        location=event.location,
+                        description=event.description,
+                        begin_date=event.begin_date,
+                        begin_time=event.begin_time,
+                        end_date=event.end_date,
+                        end_time=event.end_time,
+                        organizer=user,
+                        attendees=attendees)
+---
+code: |
+  email_sent = send_email(to=[user],
+                          bcc=attendees,
+                          template=email_template,
+                          attachments=ics_file)
+---
+mandatory: True
+question: |
+  We have booked these attendees
+subquestion: |
+  
+  Thank you, ${user.name.first}!
+  
+  The attendees are as follows:
+  
+  ${attendees}
+  
+  Then event is as follows:
+  
+  ${event.title} on ${format_date(event.begin_date, format='dd MMMM yyyy')} at ${format_time(event.begin_time, format='h:mm a')}
+  
+  % if email_sent:
+  Also, an email was successfully sent to the attendees
+  % else:
+  Unfortunately an email was not sent
+  % endif
 ---
