@@ -1,0 +1,110 @@
+---
+# Client Information: This needs to be discussed with Anglicare officers to double check what exact information should be included in the template.
+question: Client Information 
+fields:
+  - Case Number: user.case
+  - Last Name: user.name.last
+  - First Name: user.name.first
+  - Date of Birth: user.dob
+    datatype: date
+  - Relationship to Child: user.relationship
+    datatype: dropdown
+    choices:
+    - Mother
+    - Father
+    - Other
+  - Please specify your relationship to the child: ACspecify  
+    show if: 
+      variable: user.relationship
+      is: 'Other'
+  - Email: user.email
+    datatype: email
+  - Mobile phone number: user.phone
+    datatype: integer
+    minlength: 10
+    maxlength: 10
+---
+# Confirm the client's detail in this page (except the email address)
+## Add a Table summarising Client's information
+question: Confirm Client Information
+subquestion: |
+  Client's information
+  **Insert Table here**
+  Do you confirm that the above client's information is correct?
+buttons: 
+  yes: continue
+  no: |
+back button: True
+back button label: |
+  Edit Client's Information
+---
+question: Appointment Location
+subquestion: |
+  Please confirm the location of the appointments. 
+fields: 
+  - Address: AClocation
+    datatype: radio
+    choices:
+    - Yes
+    - No
+  - Then, what is the address for the location?: AClocationelse
+    show if: 
+      variable: AClocation
+      is: 'No'
+---
+question: Appointments Dates
+subquestion: |
+  Please select appointments dates.
+fields:
+  - First Appointment Date: ACdate1
+    datatype: datetime
+  - Second Appointment Date: ACdate2
+    datatype: datetime
+  - Third Appointment Date: ACdate3
+    datatype: datetime
+  - Fourth Appointment Date: ACdate4
+    datatype: datetime
+  - Fifth Appointment Date: ACdate5
+    datatype: datetime
+  - Sixth Appointment Date: ACdate6
+    datatype: datetime
+## Double check the date and time fields
+---
+# Confirm the client's appointments dates
+## Insert a table summarising the appointment type. 
+question: Confirming client's appointments. 
+subquestion: |
+  Please confirm the details of the appointments are correct.
+  **Insert Table here**
+  Do you confirm that the above client's information is correct?
+buttons: 
+  yes: continue
+  no: |
+back button: True
+back button label: |
+  Edit Appointments Dates/Time
+---
+# Here we need to add Email reminder sent confirmation message
+## Download PDF file for the reminder document
+queestion: Document is now ready for your reference
+subquestion: |
+  Please find the details of the client information you have entered and booking details 
+
+  Please find summary document for your reference. 
+attachement: 
+  name: what is it?
+  filename: filename
+  docx template file: ACSA1_template.docx
+  valid formats:
+    - pdf
+buttons: 
+  - Confirm the document and ready to send: continue
+  - No: exit
+---
+mandatory: True
+code: |
+  if user_approves: 
+    success_screen
+  else:
+    fail_screen
+--- 

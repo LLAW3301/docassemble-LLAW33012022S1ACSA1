@@ -1,0 +1,114 @@
+---
+#AnglicareSA App main
+metadata:
+  data format: |
+    format_date(format='full')
+    format_time(format='h:mm a')
+---
+## Double check the date and time fields
+mandatory: true
+question: Appointments Dates
+subquestion: |
+  Please select appointments dates.
+
+  **First Appointment**
+fields:
+  - Date: ACdate1
+    datatype: date
+  - Time: ACtime1
+    datatype: time
+---
+mandatory: true
+question: Do you confirm the first appointment?
+subquestion: |
+  First Appointment|Details
+  ---|---
+  Location|ex
+  Date|${ACdate1}
+  Time|${ACtime1}
+  
+buttons: 
+  yes: continue
+  no: |
+back button: True
+back button label: |
+  Edit First Appointment Date/Time  
+---
+mandatory: true
+question: Follow Up Appointments
+subquestion: |
+  Please confirm the dates and time of follow up appointments.
+fields:
+  - note: For **Second Appointment** 
+  - Date: ACdate2
+    datatype: date
+    default: |
+      ${ ACdate1.plus(weeks=2) }
+  - Time: ACtime2
+    datatype: time
+    default: |
+      ${ ACtime1 }
+      
+  - note: For **Third Appointment** 
+  - Date: ACdate3
+    datatype: date
+    default: |
+      ${ ACdate1.plus(weeks=4) }
+  - Time: ACtime3
+    datatype: time
+    default: |
+      ${ ACtime1 }
+  - note: For **Fourth Appointment** 
+  - Date: ACdate4
+    datatype: date
+    default: |
+      ${ ACdate1.plus(weeks=6) }
+  - Time: ACtime4
+    datatype: time
+    default: |
+      ${ ACtime1 }
+  - note: For **Fifth Appointment**
+  - Date: ACdate5
+    datatype: date
+    default: |
+      ${ ACdate1.plus(weeks=8) }
+  - Time: ACtime5
+    datatype: time
+    default: |
+      ${ ACtime1 }
+  - note: For **Sixth Appointment** 
+  - Date: ACdate6
+    datatype: date
+    default: |
+      ${ ACdate1.plus(weeks=10) }
+  - Time: ACtime6
+    datatype: time
+    default: |
+      ${ ACtime1 }
+---
+# Confirm the client's appointments dates
+## Insert a table summarising the appointment type. 
+mandatory: true
+question: Confirming client's appointments. 
+subquestion: |
+ 
+  Please confirm the details of the appointments are correct.
+  
+  Appointments|Date/Time
+  ---|---
+  1st Appointment|${ACdate1} at ${ACtime1}
+  2nd Appointment|${ACdate2} at ${ACtime2}
+  3rd Appointment|${ACdate3} at ${ACtime3}
+  4th Appointment|${ACdate4} at ${ACtime4}
+  5th Appointment|${ACdate5} at ${ACtime5}
+  6th Appointment|${ACdate6} at ${ACtime6}
+  
+  Do you confirm that the above client's information is correct?
+
+buttons: 
+  yes: continue
+  no: |
+back button: True
+back button label: |
+  Edit Appointments Dates/Time
+---

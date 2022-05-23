@@ -1,0 +1,51 @@
+---
+#AnglicareSA App main
+metadata:
+  title: AnglicareSA 
+  short title: |
+    Appointments Reminder Emails
+  description: |
+    Please use this App to send booking reminders to the client's registered email address.
+  data format: format_datetime('dddd, dd MMMM yyyy hh:mm tt')
+##Naviation bar can be inserted here for S2. 
+---
+objects:
+  - user: Individual
+  - adverse_party: Individual
+  - appointments: DAList.using(object_type=Thing)
+---
+include:
+  - ACSA1_main.yml
+  - ACSA1_iteration.yml
+  - ACSA1_questions.yml
+---
+mandatory: True
+code: |
+  ACdisplay_welcome_screen
+  
+  ACdisplay_final_screen
+---
+code: |
+  ACdisplay_welcome_screen = True
+  force_ask('ACwelcome_screen')
+---
+event: ACwelcome_screen
+question: AnglicareSA Clients Appointment Reminder System
+subquestion: |
+  Welcome to the AnglicareSA - Clinets Appoitnment Reminder System!
+  
+  Before you initiate the application, make sure that you have:
+  - correct information for the client;
+  - correct email address for the client;
+  - correct date/time for six appointments.
+  
+  **Privacy Warning**
+
+  This is where we need to talk about privacy if we are going to warn the staffs or something. 
+  
+buttons:
+  - I accept these terms: Continue
+  - I do not accept these terms: Exit
+---
+
+event: AC
