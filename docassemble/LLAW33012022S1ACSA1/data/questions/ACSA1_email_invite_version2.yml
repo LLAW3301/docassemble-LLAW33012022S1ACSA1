@@ -17,12 +17,13 @@ fields:
 ---
 question: |
   Would you like to invite a client?
-yesno: attendees
+yesno: attendees.there_are_any
 ---
 question: |
   Enter client information.
 fields:
-  - NRP/RP: attendees[i].nrp
+  - Case Number: attendees[i].case
+  - NRP/RP: attendees
   - First Name: attendees[i].name.first
   - Last Name: attendees[i].name.last
   - E-mail: attendees[i].email
@@ -31,7 +32,7 @@ fields:
     datatype: file
 ---
 question: |
-  Is ${ attendees } the client you wish to invite?
+  Are there any more clients besides ${ attendees }?
 yesno: attendees.there_is_another
 ---
 question: |
@@ -100,12 +101,12 @@ code: |
 ---
 mandatory: True
 question: |
-  We have booked this attendee
+  We have booked these attendees
 subquestion: |
   
   Thank you, ${user.name.first}!
   
-  The attendee is as follows:
+  The attendees are as follows:
   
   ${attendees}
   
