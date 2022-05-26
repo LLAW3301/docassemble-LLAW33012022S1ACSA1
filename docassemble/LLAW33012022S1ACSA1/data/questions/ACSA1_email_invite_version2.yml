@@ -8,37 +8,88 @@ objects:
   - attendees: DAList.using(object_type=Individual)
 ---
 question: |
-  Enter your AnglicareSA login.
+  Enter your AnglicareSA details.
 fields:
   - First Name: user.name.first
   - Last Name: user.name.last
   - E-mail: user.email
     datatype: email
 ---
-question: |
-  Would you like to invite a client?
-yesno: attendees.there_are_any
----
-question: |
-  Enter client information.
-fields:
-  - Case Number: attendees[i].case
-  - NRP/RP: attendees
-  - First Name: attendees[i].name.first
-  - Last Name: attendees[i].name.last
-  - E-mail: attendees[i].email
-    datatype: email
-  - Scheduled appointments: the_file
-    datatype: file
----
-question: |
-  Are there any more clients besides ${ attendees }?
-yesno: attendees.there_is_another
----
+mandatory: true
 question: |
   Enter apppointment information.
 fields:
-  - Title: event.title
+  - Appointment 1: event.title
+  - Location: event.location
+    required: False
+  - Start date: event.begin_date
+    datatype: date
+  - Start time: event.begin_time
+    datatype: time
+  - End date: event.end_date
+    datatype: date
+  - End time: event.end_time
+    datatype: time
+  - Description: event.description
+    input type: area
+    required: False
+  - Appointment 2: event.title
+  - Location: event.location
+    required: False
+  - Start date: event.begin_date
+    datatype: date
+  - Start time: event.begin_time
+    datatype: time
+  - End date: event.end_date
+    datatype: date
+  - End time: event.end_time
+    datatype: time
+  - Description: event.description
+    input type: area
+    required: False
+  - Appointment 3: event.title
+  - Location: event.location
+    required: False
+  - Start date: event.begin_date
+    datatype: date
+  - Start time: event.begin_time
+    datatype: time
+  - End date: event.end_date
+    datatype: date
+  - End time: event.end_time
+    datatype: time
+  - Description: event.description
+    input type: area
+    required: False
+  - Appointment 4: event.title
+  - Location: event.location
+    required: False
+  - Start date: event.begin_date
+    datatype: date
+  - Start time: event.begin_time
+    datatype: time
+  - End date: event.end_date
+    datatype: date
+  - End time: event.end_time
+    datatype: time
+  - Description: event.description
+    input type: area
+    required: False
+  - Appointment 5: event.title
+  - Location: event.location
+    required: False
+  - Start date: event.begin_date
+    datatype: date
+  - Start time: event.begin_time
+    datatype: time
+  - End date: event.end_date
+    datatype: date
+  - End time: event.end_time
+    datatype: time
+  - Description: event.description
+    input type: area
+    required: False
+  - Appointment 6: event.title
   - Location: event.location
     required: False
   - Start date: event.begin_date
@@ -99,7 +150,7 @@ code: |
                           template=email_template,
                           attachments=ics_file)
 ---
-mandatory: True
+mandatory: true
 question: |
   We have booked these attendees
 subquestion: |
