@@ -73,9 +73,9 @@ code: |
       instructions_to_NRP_Noarlunga
       PDF_Noarlunga
     else: 
-      instructions_to_RP_Mt_Barker
-      instructions_to_NRP_Mt_Barker
-      PDF_Mt_Barker
+      instructions_to_RP_Mt_Baker
+      instructions_to_NRP_Mt_Baker
+      PDF_Mt_Baker
 ---
 code: |
   ACdisplay_Welcome_screen = True
@@ -210,7 +210,7 @@ fields:
   - Location: RP_appt1.location
     datatype: dropdown
     choices: 
-    - Mt Barker
+    - Mt Baker
     - Noarlunga 
   - note: For **First Appointment**
   - RP Start Date: RP_appt1.begindate
@@ -233,7 +233,7 @@ fields:
   - Location: NRP_appt1.location
     datatype: dropdown
     choices: 
-    - Mt Barker
+    - Mt Baker
     - Noarlunga
     default: |
       ${ RP_appt1.location }
@@ -315,7 +315,7 @@ fields:
   - Location: RP_appt2.location
     datatype: dropdown
     choices: 
-    - Mt Barker
+    - Mt Baker
     - Noarlunga
     default: |
       ${ RP_appt1.location }      
@@ -342,7 +342,7 @@ fields:
   - Location: RP_appt3.location
     datatype: dropdown
     choices: 
-    - Mt Barker
+    - Mt Baker
     - Noarlunga
     default: |
       ${ RP_appt1.location }      
@@ -369,7 +369,7 @@ fields:
   - Location: RP_appt4.location
     datatype: dropdown
     choices: 
-    - Mt Barker
+    - Mt Baker
     - Noarlunga
     default: |
       ${ RP_appt1.location }      
@@ -396,7 +396,7 @@ fields:
   - Location: RP_appt5.location
     datatype: dropdown
     choices: 
-    - Mt Barker
+    - Mt Baker
     - Noarlunga
     default: |
       ${ RP_appt1.location }      
@@ -423,7 +423,7 @@ fields:
   - Location: RP_appt6.location
     datatype: dropdown
     choices: 
-    - Mt Barker
+    - Mt Baker
     - Noarlunga
     default: |
       ${ RP_appt1.location }      
@@ -456,7 +456,7 @@ fields:
   - Location: NRP_appt2.location
     datatype: dropdown
     choices: 
-    - Mt Barker
+    - Mt Baker
     - Noarlunga
     default: |
       ${ NRP_appt1.location }      
@@ -483,7 +483,7 @@ fields:
   - Location: NRP_appt3.location
     datatype: dropdown
     choices: 
-    - Mt Barker
+    - Mt Baker
     - Noarlunga
     default: |
       ${ NRP_appt1.location }      
@@ -510,7 +510,7 @@ fields:
   - Location: NRP_appt4.location
     datatype: dropdown
     choices: 
-    - Mt Barker
+    - Mt Baker
     - Noarlunga
     default: |
       ${ NRP_appt1.location }      
@@ -537,7 +537,7 @@ fields:
   - Location: NRP_appt5.location
     datatype: dropdown
     choices: 
-    - Mt Barker
+    - Mt Baker
     - Noarlunga
     default: |
       ${ NRP_appt1.location }      
@@ -564,7 +564,7 @@ fields:
   - Location: NRP_appt6.location
     datatype: dropdown
     choices: 
-    - Mt Barker
+    - Mt Baker
     - Noarlunga
     default: |
       ${ NRP_appt1.location }      
@@ -735,11 +735,11 @@ section: PDFs Download
 ---
 attachment: 
   name: PDF for RP - ${RP.title}.${RP.name.last}
-  variable name: RP_Mt_Barker_location
+  variable name: RP_Mt_Baker_location
   filename: AnglicareSA - Appt Details for ${RP.title}.${RP.name.last}
   docx template file: PDF_Mt_Baker_location_RP.docx
 ---
-template: RP_Mt_Barker_email
+template: RP_Mt_Baker_email
 subject: |
   AnglicareSA: Appointments Details for ${RP.name.first} ${RP.name.last} 
 content: |
@@ -764,11 +764,11 @@ content: |
 ---
 attachment:
   name: PDF for NRP - ${NRP.title}.${NRP.name.last}
-  variable name: NRP_Mt_Barker_location
+  variable name: NRP_Mt_Baker_location
   filenmae: AnglicareSA - Appt Details for ${NRP.title}.${NRP.name.last}
   docx template file: PDF_Mt_Baker_location_NRP.docx
 ---
-template: NRP_Mt_Barker_email
+template: NRP_Mt_Baker_email
 subject: |
   AnglicareSA: Appointments Details for ${NRP.name.first} ${NRP.name.last} 
 content: |
@@ -791,14 +791,14 @@ content: |
   AnglicareSA
 ---
 code: |
-  success_sending_emailRPB = send_email(to=RP.email, template=RP_Noarlunga_email, attachments=RP_Mt_Barker_location.pdf)
-  instructions_to_RP_Mt_Barker = True
+  success_sending_emailRPB = send_email(to=RP.email, template=RP_Mt_Baker_email, attachments=RP_Mt_Baker_location.pdf)
+  instructions_to_RP_Mt_Baker = True
 ---
 code: |
-  success_sending_emailNRPB = send_email(to=NRP.email, template=NRP_Mt_Barker_email, attachments=NRP_Mt_Barker_location.pdf)
-  instructions_to_NRP_Mt_Barker = True
+  success_sending_emailNRPB = send_email(to=NRP.email, template=NRP_Mt_Baker_email, attachments=NRP_Mt_Baker_location.pdf)
+  instructions_to_NRP_Mt_Baker = True
 ---
-event: PDF_Mt_Barker
+event: PDF_Mt_Baker
 question: PDF documents for ${RP.case}
 subquestion: |
 
@@ -822,7 +822,7 @@ subquestion: |
   % endif
 
 attachment code: |
-  [RP_Mt_Barker_location, NRP_Mt_Barker_location]
+  [RP_Mt_Baker_location, NRP_Mt_Baker_location]
 
 buttons:
   - New Case: restart
