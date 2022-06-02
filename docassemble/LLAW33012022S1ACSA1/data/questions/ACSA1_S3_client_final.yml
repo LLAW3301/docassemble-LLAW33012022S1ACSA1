@@ -1,0 +1,124 @@
+---
+question: |
+  Your AnglicareSA Details
+fields:
+  - First Name: user.name.first
+    default: |
+      Mary 
+  - Last Name: user.name.last
+    default: |
+      Smith
+  - Email: user.email
+    datatype: email
+    default: |
+      you0022@flinders.edu.au
+progress: 5
+---
+question: Case Number
+fields:
+  - no label: RP.case
+    default: |
+      ABC123
+section: Client Information
+progress: 10
+---
+question: Number of Children Attending
+fields:
+  - no label: ACnoofchild
+    datatype: integer
+    default: |
+      2
+progress: 15
+---    
+question: Client Information 
+fields:
+  - note: For **RP**
+    help: |
+      Details for Responsible Parent
+  - Title: RP.title
+    datatype: dropdown
+    choices: 
+    - Mr
+    - Ms
+    - Mrs
+    - Miss
+    default: |
+      Ms
+  - Last Name: RP.name.last
+    default: |
+      Smith
+  - First Name: RP.name.first
+    default: |
+      Jane 
+  - Email: RP.email
+    datatype: email
+    default: |
+      ocal0052@flinders.edu.au
+  - Mobile Phone Number: RP.phone
+    minlength: 12
+    maxlength: 12
+    default: '+61'
+ 
+  - note: For **NRP**
+    help: |
+      Details for Non-Responsible Parent
+  - Title: NRP.title
+    datatype: dropdown
+    choices: 
+    - Mr
+    - Ms
+    - Mrs
+    - Miss
+    default: |
+      Mr 
+  - Last Name: NRP.name.last
+    default: |
+      Smith 
+  - First Name: NRP.name.first
+    default: |
+      John 
+  - Email: NRP.email
+    datatype: email
+    default: |
+      bunn0025@flinders.edu.au 
+  - Mobile Phone Number: NRP.phone
+    minlength: 12
+    maxlength: 12
+    default: '+61'
+progress: 20
+---
+code: |
+  ACdisplay_Confirm_client = True
+  force_ask('Confirm_client')
+---
+event: Confirm_client
+question: Confirm RP/NRP Information
+subquestion: |
+ 
+  **Case: ${RP.case}** 
+  
+  **Number of Children: ${ACnoofchild}**
+  
+  **RP Information**
+  
+  ${RP.name.first} ${RP.name.last}|Details
+  ---|---
+  Email|${RP.email}
+  Mobile Phone|${RP.phone}
+  
+    **NRP Information**
+  
+  ${NRP.name.first} ${NRP.name.last}|Details
+  ---|---
+  Email|${NRP.email}
+  Mobile Phone|${NRP.phone}
+  
+  **Please confirm the above client information**
+  
+buttons: 
+  Confirm: continue
+back button: true 
+back button label: |
+  Edit Client's Information
+progress: 30
+---

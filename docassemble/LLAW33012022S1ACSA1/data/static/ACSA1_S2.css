@@ -83,6 +83,7 @@
     width: 100%;
     color: rgb(0, 50, 110);
     font-size: 0.9em;
+    text-align: center;
 }
 .col-form-label {
   font-size: 0.9em;

@@ -1,0 +1,93 @@
+---
+## Double check the date and time fields
+question: | 
+  First Appointment Details for RP
+fields:
+  - Location: RP_appt1.location
+    datatype: dropdown
+    choices: 
+    - Mt Baker
+    - Noarlunga 
+    default: |
+      Noarlunga 
+  - note: For **First Appointment**
+  - RP Start Date: RP_appt1.begindate
+    datatype: date
+  - RP End Date: RP_appt1.enddate
+    datatype: date
+  - RP Arrival Time: RP_appt1.begintime
+    datatype: time
+  - RP Pick-up Time: RP_appt1.endtime
+    datatype: time
+  - Additional Info for RP: RP_appt1.description
+    required: False
+    default: |
+      N/A
+section: First Appointment
+progress: 40
+---
+## Double check the date and time fields
+question: | 
+  First Appointment Details for NRP
+fields:
+  - Location: NRP_appt1.location
+    datatype: dropdown
+    choices: 
+    - Mt Baker
+    - Noarlunga
+    default: |
+      ${ RP_appt1.location }
+  - note: For **First Appointment**
+  - NRP Start Date: NRP_appt1.begindate
+    datatype: date
+    default: |
+      ${ RP_appt1.begindate }
+  - NRP End Date: NRP_appt1.enddate
+    datatype: date
+    default: |
+      ${ RP_appt1.enddate }
+  - NRP Arrival Time: NRP_appt1.begintime
+    datatype: time
+  - NRP Departure Time: NRP_appt1.endtime
+    datatype: time
+  - Additional Info for NRP: NRP_appt1.description
+    required: False 
+progress: 50
+---
+code: |
+  ACdisplay_Confirm_first_appt = True
+  force_ask('Confirm_first_appt')
+---
+event: Confirm_first_appt
+question: Confirm First Appointment Details
+subquestion: |
+  
+  **For RP**
+  
+  First Appointment|Details
+  ---|---
+  Location|${RP_appt1.location} RP
+  Date|${ format_date(RP_appt1.begindate, format='full')}
+  RP Arrival Time|${ format_time(RP_appt1.begintime, format='h:mm a')}
+  RP Pick-up Time|${ format_time(RP_appt1.endtime, format='h:mm a')}
+  Description|${RP_appt1.description}
+  
+  **For NRP**
+  
+  First Appointent|Details
+  ---|---
+  Location|${NRP_appt1.location} NRP
+  Date|${ format_date(NRP_appt1.begindate, format='full')}
+  NRP Arrival Time|${ format_time(NRP_appt1.begintime, format='h:mm a')}
+  NRP Departure Time|${ format_time(NRP_appt1.endtime, format='h:mm a')}
+  Description|${NRP_appt1.description}
+  
+  Please confirm the above appointment details.
+
+buttons: 
+  Confirm: continue
+back button: True
+back button label: |
+  Edit First Appointment Date/Time  
+progress: 60
+---
