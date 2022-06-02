@@ -1,0 +1,326 @@
+---
+question: Follow Up Appointments for RP
+subquestion: |
+  Please ensure the below appointment details are correct. 
+fields:
+  - note: For **Second Appointment** 
+  - Start Date: RP_appt2.begindate
+    datatype: date
+    default: |
+      ${ RP_appt1.begindate.plus(weeks=2) }
+  - End Date: RP_appt2.enddate
+    datatype: date
+    default: |
+      ${ RP_appt1.enddate.plus(weeks=2) }
+  - RP Arrival Time: RP_appt2.begintime
+    datatype: time
+    default: |
+      ${ RP_appt1.begintime }
+  - RP Pick-up Time: RP_appt2.endtime
+    datatype: time
+    default: |
+      ${ RP_appt1.endtime }
+  - Location: RP_appt2.location
+    datatype: dropdown
+    choices: 
+    - Mt Baker
+    - Noarlunga
+    default: |
+      ${ RP_appt1.location }      
+  - Additional Info for RP: RP_appt2.description
+    required: False
+      
+  - note: For **Third Appointment** 
+  - Start Date: RP_appt3.begindate
+    datatype: date
+    default: |
+      ${ RP_appt1.begindate.plus(weeks=4) }
+  - End Date: RP_appt3.enddate
+    datatype: date
+    default: |
+      ${ RP_appt1.enddate.plus(weeks=4) }
+  - RP Arrival Time: RP_appt3.begintime
+    datatype: time
+    default: |
+      ${ RP_appt1.begintime }
+  - RP Pick-up Time: RP_appt3.endtime
+    datatype: time
+    default: |
+      ${ RP_appt1.endtime }
+  - Location: RP_appt3.location
+    datatype: dropdown
+    choices: 
+    - Mt Baker
+    - Noarlunga
+    default: |
+      ${ RP_appt1.location }      
+  - Additional Info for RP: RP_appt3.description 
+    required: False
+      
+  - note: For **Fourth Appointment** 
+  - Start Date: RP_appt4.begindate
+    datatype: date
+    default: |
+      ${ RP_appt1.begindate.plus(weeks=6) }
+  - End Date: RP_appt4.enddate
+    datatype: date
+    default: |
+      ${ RP_appt1.enddate.plus(weeks=6) }
+  - RP Arrival Time: RP_appt4.begintime
+    datatype: time
+    default: |
+      ${ RP_appt1.begintime }
+  - RP Pick-up Time: RP_appt4.endtime
+    datatype: time
+    default: |
+      ${ RP_appt1.endtime }
+  - Location: RP_appt4.location
+    datatype: dropdown
+    choices: 
+    - Mt Baker
+    - Noarlunga
+    default: |
+      ${ RP_appt1.location }      
+  - Additional Info for RP: RP_appt4.description 
+    required: False
+      
+  - note: For **Fifth Appointment**
+  - Start Date: RP_appt5.begindate
+    datatype: date
+    default: |
+      ${ RP_appt1.begindate.plus(weeks=8) }
+  - End Date: RP_appt5.enddate
+    datatype: date
+    default: |
+      ${ RP_appt1.enddate.plus(weeks=8) }
+  - RP Arrival Time: RP_appt5.begintime
+    datatype: time
+    default: |
+      ${ RP_appt1.begintime }
+  - RP Pick-up Time: RP_appt5.endtime
+    datatype: time
+    default: |
+      ${ RP_appt1.endtime }
+  - Location: RP_appt5.location
+    datatype: dropdown
+    choices: 
+    - Mt Baker
+    - Noarlunga
+    default: |
+      ${ RP_appt1.location }      
+  - Additional Info for RP: RP_appt5.description 
+    required: False
+      
+  - note: For **Sixth Appointment** 
+  - Start Date: RP_appt6.begindate
+    datatype: date
+    default: |
+      ${ RP_appt1.begindate.plus(weeks=10) }
+  - End Date: RP_appt6.enddate
+    datatype: date
+    default: |
+      ${ RP_appt1.enddate.plus(weeks=10) }
+  - RP Arrival Time: RP_appt6.begintime
+    datatype: time
+    default: |
+      ${ RP_appt1.begintime }
+  - RP Pick-up Time: RP_appt6.endtime
+    datatype: time
+    default: |
+      ${ RP_appt1.endtime }
+  - Location: RP_appt6.location
+    datatype: dropdown
+    choices: 
+    - Mt Baker
+    - Noarlunga
+    default: |
+      ${ RP_appt1.location }      
+  - Additional Info for RP: RP_appt6.description 
+    required: False
+section: Follow Up Appointments
+progress: 65
+---
+question: Follow Up Appointments for NRP
+subquestion: |
+  Please ensure the below appointment details are correct. 
+fields:
+  - note: For **Second Appointment** 
+  - Start Date: NRP_appt2.begindate
+    datatype: date
+    default: |
+      ${ NRP_appt1.begindate.plus(weeks=2) }
+  - End Date: NRP_appt2.enddate
+    datatype: date
+    default: |
+      ${ NRP_appt1.enddate.plus(weeks=2) }
+  - NRP Arrival Time: NRP_appt2.begintime
+    datatype: time
+    default: |
+      ${ NRP_appt1.begintime }
+  - NRP Departure Time: NRP_appt2.endtime
+    datatype: time
+    default: |
+      ${ NRP_appt1.endtime }
+  - Location: NRP_appt2.location
+    datatype: dropdown
+    choices: 
+    - Mt Baker
+    - Noarlunga
+    default: |
+      ${ NRP_appt1.location }      
+  - Additional Info for NRP: NRP_appt2.description
+    required: False
+      
+  - note: For **Third Appointment** 
+  - Start Date: NRP_appt3.begindate
+    datatype: date
+    default: |
+      ${ NRP_appt1.begindate.plus(weeks=4) }
+  - End Date: NRP_appt3.enddate
+    datatype: date
+    default: |
+      ${ NRP_appt1.enddate.plus(weeks=4) }
+  - NRP Arrival Time: NRP_appt3.begintime
+    datatype: time
+    default: |
+      ${ NRP_appt1.begintime }
+  - NRP Departure Time: NRP_appt3.endtime
+    datatype: time
+    default: |
+      ${ NRP_appt1.endtime }
+  - Location: NRP_appt3.location
+    datatype: dropdown
+    choices: 
+    - Mt Baker
+    - Noarlunga
+    default: |
+      ${ NRP_appt1.location }      
+  - Additional Info for NRP: NRP_appt3.description
+    required: False
+      
+  - note: For **Fourth Appointment** 
+  - Start Date: NRP_appt4.begindate
+    datatype: date
+    default: |
+      ${ NRP_appt1.begindate.plus(weeks=6) }
+  - End Date: NRP_appt4.enddate
+    datatype: date
+    default: |
+      ${ NRP_appt1.enddate.plus(weeks=6) }
+  - NRP Arrival Time: NRP_appt4.begintime
+    datatype: time
+    default: |
+      ${ NRP_appt1.begintime }
+  - NRP Departure Time: NRP_appt4.endtime
+    datatype: time
+    default: |
+      ${ NRP_appt1.endtime }
+  - Location: NRP_appt4.location
+    datatype: dropdown
+    choices: 
+    - Mt Baker
+    - Noarlunga
+    default: |
+      ${ NRP_appt1.location }      
+  - Additional Info for NRP: NRP_appt4.description
+    required: False
+      
+  - note: For **Fifth Appointment**
+  - Start Date: NRP_appt5.begindate
+    datatype: date
+    default: |
+      ${ NRP_appt1.begindate.plus(weeks=8) }
+  - End Date: NRP_appt5.enddate
+    datatype: date
+    default: |
+      ${ NRP_appt1.enddate.plus(weeks=8) }
+  - NRP Arrival Time: NRP_appt5.begintime
+    datatype: time
+    default: |
+      ${ NRP_appt1.begintime }
+  - NRP Departure Time: NRP_appt5.endtime
+    datatype: time
+    default: |
+      ${ NRP_appt1.endtime }
+  - Location: NRP_appt5.location
+    datatype: dropdown
+    choices: 
+    - Mt Baker
+    - Noarlunga
+    default: |
+      ${ NRP_appt1.location }      
+  - Additional Info for NRP: NRP_appt5.description
+    required: False
+      
+  - note: For **Sixth Appointment** 
+  - Start Date: NRP_appt6.begindate
+    datatype: date
+    default: |
+      ${ NRP_appt1.begindate.plus(weeks=10) }
+  - End Date: NRP_appt6.enddate
+    datatype: date
+    default: |
+      ${ NRP_appt1.enddate.plus(weeks=10) }
+  - NRP Arrival Time: NRP_appt6.begintime
+    datatype: time
+    default: |
+      ${ NRP_appt1.begintime }
+  - NRP Departure Time: NRP_appt6.endtime
+    datatype: time
+    default: |
+      ${ NRP_appt1.endtime }
+  - Location: NRP_appt6.location
+    datatype: dropdown
+    choices: 
+    - Mt Baker
+    - Noarlunga
+    default: |
+      ${ NRP_appt1.location }      
+  - Additional Info for NRP: NRP_appt6.description
+    required: False
+progress: 70
+---
+code: |
+  ACdisplay_Confirm_follow_appt = True
+  force_ask('Confirm_follow_appt')
+---
+# Confirm the client's appointments dates
+## Insert a table summarising the appointment type. 
+event: Confirm_follow_appt
+question: Confirm Follow Up Appointments
+subquestion: |
+ 
+  **For RP**
+  
+  Appointments|Date|Arrival Time|Visit Commencing Time|Pick-up Time
+  ---|---|---|---|---
+  -|**${ format_date(RP_appt1.begindate, format='EEEE')}**|-|-|-
+  1st|${ format_date(RP_appt1.begindate, format='dd/MM/yyyy')}|${ format_time(RP_appt1.begintime, format='h:mm a')}|${ format_time(NRP_appt1.begintime, format='h:mm a')}|${ format_time(RP_appt1.endtime, format='h:mm a')}
+  2nd|${ format_date(RP_appt2.begindate, format='dd/MM/yyyy')}|${ format_time(RP_appt2.begintime, format='h:mm a')}|${ format_time(NRP_appt2.begintime, format='h:mm a')}|${ format_time(RP_appt2.endtime, format='h:mm a')}
+  3rd|${ format_date(RP_appt3.begindate, format='dd/MM/yyyy')}|${ format_time(RP_appt3.begintime, format='h:mm a')}|${ format_time(NRP_appt3.begintime, format='h:mm a')}|${ format_time(RP_appt3.endtime, format='h:mm a')}
+  4th|${ format_date(RP_appt4.begindate, format='dd/MM/yyyy')}|${ format_time(RP_appt4.begintime, format='h:mm a')}|${ format_time(NRP_appt4.begintime, format='h:mm a')}|${ format_time(RP_appt4.endtime, format='h:mm a')}
+  5th|${ format_date(RP_appt5.begindate, format='dd/MM/yyyy')}|${ format_time(RP_appt5.begintime, format='h:mm a')}|${ format_time(NRP_appt5.begintime, format='h:mm a')}|${ format_time(RP_appt5.endtime, format='h:mm a')}
+  6th|${ format_date(RP_appt6.begindate, format='dd/MM/yyyy')}|${ format_time(RP_appt6.begintime, format='h:mm a')}|${ format_time(NRP_appt6.begintime, format='h:mm a')}|${ format_time(RP_appt6.endtime, format='h:mm a')}
+  
+  
+  **For NRP**
+  
+  Appointments|Date|Arrival Time|Visit Ending Time|Departure Time
+  ---|---|---|---|---
+  -|**${ format_date(NRP_appt1.begindate, format='EEEE')}**|-|-|-
+  1st|${ format_date(NRP_appt1.begindate, format='dd/MM/yyyy')}|${ format_time(NRP_appt1.begintime, format='h:mm a')}|${ format_time(RP_appt1.endtime, format='h:mm a')}|${ format_time(NRP_appt1.endtime, format='h:mm a')}
+  2nd|${ format_date(NRP_appt2.begindate, format='dd/MM/yyyy')}|${ format_time(NRP_appt2.begintime, format='h:mm a')}|${ format_time(RP_appt2.endtime, format='h:mm a')}|${ format_time(NRP_appt1.endtime, format='h:mm a')}
+  3rd|${ format_date(NRP_appt3.begindate, format='dd/MM/yyyy')}|${ format_time(NRP_appt3.begintime, format='h:mm a')}|${ format_time(RP_appt3.endtime, format='h:mm a')}|${ format_time(NRP_appt1.endtime, format='h:mm a')}
+  4th|${ format_date(NRP_appt4.begindate, format='dd/MM/yyyy')}|${ format_time(NRP_appt4.begintime, format='h:mm a')}|${ format_time(RP_appt4.endtime, format='h:mm a')}|${ format_time(NRP_appt1.endtime, format='h:mm a')}
+  5th|${ format_date(NRP_appt5.begindate, format='dd/MM/yyyy')}|${ format_time(NRP_appt5.begintime, format='h:mm a')}|${ format_time(RP_appt5.endtime, format='h:mm a')}|${ format_time(NRP_appt1.endtime, format='h:mm a')}
+  6th|${ format_date(NRP_appt6.begindate, format='dd/MM/yyyy')}|${ format_time(NRP_appt6.begintime, format='h:mm a')}|${ format_time(RP_appt6.endtime, format='h:mm a')}|${ format_time(NRP_appt1.endtime, format='h:mm a')}
+  
+  Please confirm the above appointment details.
+
+buttons: 
+  Confirm: continue
+back button: True
+back button label: |
+  Edit Appointments Dates/Time
+progress: 75
+---

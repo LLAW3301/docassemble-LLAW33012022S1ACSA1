@@ -1,0 +1,328 @@
+---
+#Use Custom CSS File
+features: 
+  debug: False
+  css: ACSA1_S2.css
+  hide standard menu: True
+---
+include:
+  - ACSA1_S3_client_final.yml
+  - ACSA1_S3_1stApp_final.yml
+  - ACSA1_S3_FuApp_final.yml
+  - ACSA1_S3_email_final.yml
+---
+#AnglicareSA App main
+metadata:
+  title: AnglicareSA Appts Reminder System
+  short title: AnglicareSA Appointments
+  title url: https://anglicaresa.com.au/?gclid=CjwKCAjws8yUBhA1EiwAi_tpESD_JNhia_bB4fekMp0UDXQ3mxZzqJLO61FEgr_Ao6hdJ4F9zpOguxoCel8QAvD_BwE
+  authors:
+    - name: Erica Boram You, Melanie O'Callaghan, Chloe Lambrusco, and Bailey Bunnik
+      organization: Flinders University
+  description: |
+    Please use this App to send booking reminders to the client's registered email address.
+---
+objects:
+  - user: Individual
+  - RP: Individual
+  - NRP: Individual
+  - RP_appt1: Thing
+  - RP_appt2: Thing
+  - RP_appt3: Thing
+  - RP_appt4: Thing
+  - RP_appt5: Thing
+  - RP_appt6: Thing
+  - NRP_appt1: Thing
+  - NRP_appt2: Thing
+  - NRP_appt3: Thing
+  - NRP_appt4: Thing
+  - NRP_appt5: Thing
+  - NRP_appt6: Thing
+  - ACSAlogo: DAStaticFile.using(filename='Anglicare_logo.png')
+---
+default screen parts:
+  post: |
+    <div style="display: flex; height: 200px; align-items: center; flex-direction: column; justify-content: flex-end; flex-wrap: nowrap;">
+    <div style="margin: 5px"><img src="https://staff.flinders.edu.au/etc.clientlibs/flinders/clientlibs/clientlib-site/resources/images/flinderuni_main_logo_black.png" height="40"> </div>
+    <div style="margin: 5px; text-align: center; color: rgb(0,50,110)">
+    <cite><small><i>
+    Developed by Flinders University in<br>collaboration with AnglicareSA    <br>________________________________________________ </i></small></cite></div>
+---
+mandatory: True
+code: |
+  set_parts(logo='<img src="' + ACSAlogo.url_for() + '" style="height: 30px;">')
+---
+sections:
+  - Welcome
+  - Client Information
+  - First Appointment
+  - Follow Up Appointments
+  - Email Reminders
+  - PDFs Download
+---
+features:
+  navigation: horizontal
+  progress bar: True
+---
+mandatory: true
+code: |
+  ACdisplay_Welcome_screen
+  user.name.first
+  ACdisplay_Confirm_client
+  ACdisplay_Confirm_first_appt
+  ACdisplay_Confirm_follow_appt
+  ACdisplay_email_reminders
+  
+  if email_sent_RP1 and email_sent_RP2 and email_sent_RP3 and email_sent_RP4 and email_sent_RP5 and email_sent_RP6 and email_sent_NRP1 and email_sent_NRP2 and email_sent_NRP3 and email_sent_NRP4 and email_sent_NRP5 and email_sent_NRP6:
+    if RP_appt1.location == 'Noarlunga':
+      instructions_to_RP_Noarlunga
+      instructions_to_NRP_Noarlunga
+      PDF_Noarlunga
+    else: 
+      instructions_to_RP_Mt_Baker
+      instructions_to_NRP_Mt_Baker
+      PDF_Mt_Baker
+---
+code: |
+  ACdisplay_Welcome_screen = True
+  force_ask('Welcome_screen')
+---
+event: Welcome_screen
+question: ANGLICARESA CLIENT APPOINTMENT REMINDER SYSTEM 
+subquestion: |
+
+  Welcome to the AnglicareSA CCS appointment reminder system.
+
+  This application requires you to input client information (including email address, first and last name) and the dates and time for each appointment.
+  
+  <br><div class='welcome'><h5><center>***Privacy Statement***</center></h5> 
+  
+  Privacy is paramount when handling client information. It is vital that the application does not share personal matter between clients. 
+  
+  - I understand that I have to follow Australian Privacy Principle 6.1, limiting the disclosure of personal information to the primary use intended, defining confidentiality and keeping of client information. 
+  
+  - I understand that I am bound by s 6A of the *Privacy Act*, to act in accordance with Australian Privacy Principles. 
+under: |
+  *Privacy Act 1988* (Cth) ss 6A, 14. 
+
+buttons:
+  - I agree: continue
+  - I disagree: exit
+    url: https://anglicaresa.com.au/?gclid=CjwKCAjws8yUBhA1EiwAi_tpEQ7MtgVdLRuNVg3MLaVwPr6WVv122naLlS5JkVmrANJ51-zq1778mRoCEnAQAvD_BwE
+section: Welcome
+---
+code: |
+  ACdisplay_email_reminders = True
+  force_ask('email_reminders')
+---
+event: email_reminders
+question: Sending Email Reminders
+subquestion: |
+  
+  Case Number|${RP.case}
+  ---|---
+  RP Full Name|${RP.name.first} ${RP.name.last}
+  RP Email|${RP.email}
+  NRP Full Name|${NRP.name.first} ${NRP.name.last}
+  NRP Email|${NRP.email}
+
+  Please confirm the **email address** before you **send** PDF instructions and reminders. 
+
+buttons:
+  Send: continue
+back button: True
+back button label: |
+  Check Appointments Dates/Time
+section: Email Reminders
+progress: 80
+---
+attachment: 
+  name: AnglicareSA - Appt Details for ${RP.title}.${RP.name.last}
+  variable name: RP_Noarlunga_location
+  filename: AnglicareSA - Appt Details for ${RP.title}.${RP.name.last}
+  docx template file: PDF_Noarlunga_location_RP.docx
+---
+template: RP_Noarlunga_email
+subject: |
+  AnglicareSA: Appointments Details for ${RP.name.first} ${RP.name.last} 
+content: |
+  Dear. ${RP.title}. ${RP.name.last},
+  
+  Please find the attached PDF file for your upcoming appointments with Anglicare SA Child Contact Service.
+  
+  **Anglicare Child Contact Service centre**
+  
+  Noarlunga Community Children’s Centre, Alexander Kelly Drive, Noarlunga Centre
+  
+  **Ph:** 0428 132 755 (weekends only)
+  
+  Thank you. 
+  
+  Sincerely, 
+  
+  AnglicareSA
+---
+attachment:
+  name: AnglicareSA - Appt Details for ${NRP.title}.${NRP.name.last}
+  variable name: NRP_Noarlunga_location
+  filenmae: AnglicareSA - Appt Details for ${NRP.title}.${NRP.name.last}
+  docx template file: PDF_Noarlunga_location_NRP.docx
+---
+template: NRP_Noarlunga_email
+subject: |
+  AnglicareSA: Appointments Details for ${NRP.name.first} ${NRP.name.last} 
+content: |
+  Dear. ${NRP.title}. ${NRP.name.last},
+  
+  Please find the attached PDF file for your upcoming appointments with Anglicare SA Child Contact Service.
+  
+  **Anglicare Child Contact Service centre**
+  
+  Noarlunga Community Children’s Centre, Alexander Kelly Drive, Noarlunga Centre
+  
+  **Ph:** 0428 132 755 (weekends only)
+  
+  Thank you. 
+  
+  Sincerely, 
+  
+  AnglicareSA
+---
+code: |
+  success_sending_emailRPN = send_email(to=RP.email, template=RP_Noarlunga_email, attachments=RP_Noarlunga_location.pdf)
+  instructions_to_RP_Noarlunga = True
+---
+code: |
+  success_sending_emailNRPN = send_email(to=NRP.email, template=NRP_Noarlunga_email, attachments=NRP_Noarlunga_location.pdf)
+  instructions_to_NRP_Noarlunga = True
+---
+event: PDF_Noarlunga
+question: PDF documents for ${RP.case}
+subquestion: |
+
+  Thank you for using appointment reminders system!
+
+  % if success_sending_emailRPN and success_sending_emailNRPN:
+  Appointment reminders and PDF instructions for **${RP.case}** are successfully sent to:
+  
+  Case Number|${RP.case}
+  ---|---
+  RP Full Name|${RP.name.first} ${RP.name.last}
+  RP Email|${RP.email}
+  NRP Full Name|${NRP.name.first} ${NRP.name.last}
+  NRP Email|${NRP.email}
+  
+  Please download PDFs below for your reference.
+  
+  % else:
+  Unfortunately, there was a problem occurred while sending reminders. Please try again. 
+
+  % endif
+
+attachment code: |
+  [RP_Noarlunga_location, NRP_Noarlunga_location]
+
+buttons:
+  - New Case: restart
+  - Exit: exit
+    url: https://anglicaresa.com.au/?gclid=CjwKCAjws8yUBhA1EiwAi_tpEQ7MtgVdLRuNVg3MLaVwPr6WVv122naLlS5JkVmrANJ51-zq1778mRoCEnAQAvD_BwE
+section: PDFs Download
+---
+attachment: 
+  name: AnglicareSA - Appt Details for ${RP.title}.${RP.name.last}
+  variable name: RP_Mt_Baker_location
+  filename: AnglicareSA - Appt Details for ${RP.title}.${RP.name.last}
+  docx template file: PDF_Mt_Baker_location_RP.docx
+---
+template: RP_Mt_Baker_email
+subject: |
+  AnglicareSA: Appointments Details for ${RP.name.first} ${RP.name.last} 
+content: |
+  Dear. ${RP.title}. ${RP.name.last},
+  
+  Please find the attached PDF file for your upcoming appointments with Anglicare SA Child Contact Service.
+  
+  **Anglicare Child Contact Service centre** 
+  
+  Family House, 3 Willow Close, Mt Baker 
+  
+  **Ph:** 0411 743 056 (weekends only)
+
+  Thank you. 
+  
+  
+
+  Sincerely, 
+  
+  
+  AnglicareSA
+---
+attachment:
+  name: AnglicareSA - Appt Details for ${NRP.title}.${NRP.name.last}
+  variable name: NRP_Mt_Baker_location
+  filenmae: AnglicareSA - Appt Details for ${NRP.title}.${NRP.name.last}
+  docx template file: PDF_Mt_Baker_location_NRP.docx
+---
+template: NRP_Mt_Baker_email
+subject: |
+  AnglicareSA: Appointments Details for ${NRP.name.first} ${NRP.name.last} 
+content: |
+  Dear. ${NRP.title}. ${NRP.name.last},
+  
+  Please find the attached PDF file for your upcoming appointments with Anglicare SA Child Contact Service.
+  
+  **Anglicare Child Contact Service centre** 
+  
+  Family House, 3 Willow Close, Mt Baker 
+  
+  **Ph:** 0411 743 056 (weekends only)
+
+  Thank you. 
+  
+  Sincerely, 
+  
+  
+  
+  AnglicareSA
+---
+code: |
+  success_sending_emailRPB = send_email(to=RP.email, template=RP_Mt_Baker_email, attachments=RP_Mt_Baker_location.pdf)
+  instructions_to_RP_Mt_Baker = True
+---
+code: |
+  success_sending_emailNRPB = send_email(to=NRP.email, template=NRP_Mt_Baker_email, attachments=NRP_Mt_Baker_location.pdf)
+  instructions_to_NRP_Mt_Baker = True
+---
+event: PDF_Mt_Baker
+question: PDF documents for ${RP.case}
+subquestion: |
+
+  Thank you for using appointment reminders system!
+
+  % if success_sending_emailRPB and success_sending_emailNRPB:
+  Appointment reminders and PDF instructions for **${RP.case}** are successfully sent to:
+  
+  Case Number|${RP.case}
+  ---|---
+  RP Full Name|${RP.name.first} ${RP.name.last}
+  RP Email|${RP.email}
+  NRP Full Name|${NRP.name.first} ${NRP.name.last}
+  NRP Email|${NRP.email}
+  
+  Please download PDFs below for your reference.
+  
+  % else:
+  Unfortunately, there was a problem occurred while sending reminders. Please try again. 
+
+  % endif
+
+attachment code: |
+  [RP_Mt_Baker_location, NRP_Mt_Baker_location]
+
+buttons:
+  - New Case: restart
+  - Exit: exit
+    url: https://anglicaresa.com.au/?gclid=CjwKCAjws8yUBhA1EiwAi_tpEQ7MtgVdLRuNVg3MLaVwPr6WVv122naLlS5JkVmrANJ51-zq1778mRoCEnAQAvD_BwE
+section: PDFs Download
+progress: 120
+---
