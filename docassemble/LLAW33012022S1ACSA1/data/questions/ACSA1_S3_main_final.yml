@@ -137,7 +137,7 @@ section: Email Reminders
 progress: 80
 ---
 attachment: 
-  name: PDF for RP - ${RP.title}.${RP.name.last}
+  name: AnglicareSA - Appt Details for ${RP.title}.${RP.name.last}
   variable name: RP_Noarlunga_location
   filename: AnglicareSA - Appt Details for ${RP.title}.${RP.name.last}
   docx template file: PDF_Noarlunga_location_RP.docx
@@ -163,7 +163,7 @@ content: |
   AnglicareSA
 ---
 attachment:
-  name: PDF for NRP - ${NRP.title}.${NRP.name.last}
+  name: AnglicareSA - Appt Details for ${NRP.title}.${NRP.name.last}
   variable name: NRP_Noarlunga_location
   filenmae: AnglicareSA - Appt Details for ${NRP.title}.${NRP.name.last}
   docx template file: PDF_Noarlunga_location_NRP.docx
@@ -229,7 +229,7 @@ buttons:
 section: PDFs Download
 ---
 attachment: 
-  name: PDF for RP - ${RP.title}.${RP.name.last}
+  name: AnglicareSA - Appt Details for ${RP.title}.${RP.name.last}
   variable name: RP_Mt_Baker_location
   filename: AnglicareSA - Appt Details for ${RP.title}.${RP.name.last}
   docx template file: PDF_Mt_Baker_location_RP.docx
@@ -258,7 +258,7 @@ content: |
   AnglicareSA
 ---
 attachment:
-  name: PDF for NRP - ${NRP.title}.${NRP.name.last}
+  name: AnglicareSA - Appt Details for ${NRP.title}.${NRP.name.last}
   variable name: NRP_Mt_Baker_location
   filenmae: AnglicareSA - Appt Details for ${NRP.title}.${NRP.name.last}
   docx template file: PDF_Mt_Baker_location_NRP.docx
