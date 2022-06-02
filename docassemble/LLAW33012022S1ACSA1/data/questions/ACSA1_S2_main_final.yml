@@ -322,7 +322,7 @@ progress: 60
 ---
 question: Follow Up Appointments for RP
 subquestion: |
-  Please ensure the below appointmnet details are correct. 
+  Please ensure the below appointment details are correct. 
 fields:
   - note: For **Second Appointment** 
   - Start Date: RP_appt2.begindate

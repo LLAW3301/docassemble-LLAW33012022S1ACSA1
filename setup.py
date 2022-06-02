@@ -45,7 +45,7 @@ def find_package_data(where='.', package='', exclude=standard_exclude, exclude_d
 setup(name='docassemble.LLAW33012022S1ACSA1',
       version='0.0.1',
       description=('Final draft for S2'),
-      long_description='# docassemble.LLAW33012022S1ACSA1\r\n\r\nDevelopment of App for AnglicareSA Child Contact Service\r\n\r\n## Author\r\n\r\nErica You, you0022@flinders.edu.au\r\n',
+      long_description="**AnglicareSA Appts Reminder Web-App**\r\n\r\nOur application is an appointment reminder system, created for the staff\r\nto use at AnglicareSA. It sends out six email reminders to each client\r\nwith a PDF entailing the location and time details. It can be edited by\r\nstaff in case of appointment changes, and it automatically sends\r\nreminders.\r\n\r\n**Authors**\r\n\r\nErica Boram You, Melanie O'Callaghan, Chloe Lambrusco, and Bailey\r\nBunnik\r\n\r\nOrganization: Flinders University\r\n",
       long_description_content_type='text/markdown',
       author='Erica You',
       author_email='you0022@flinders.edu.au',
