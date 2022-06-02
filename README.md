@@ -1,14 +1,8 @@
-**AnglicareSA Appts Reminder Web-App**
+# docassemble.LLAW33012022S1ACSA1
 
-Our application is an appointment reminder system, created for the staff
-to use at AnglicareSA. It sends out six email reminders to each client
-with a PDF entailing the location and time details. It can be edited by
-staff in case of appointment changes, and it automatically sends
-reminders.
+S2 Final
 
-**Authors**
+## Author
 
-Erica Boram You, Melanie O'Callaghan, Chloe Lambrusco, and Bailey
-Bunnik
+Erica You, you0022@flinders.edu.au
 
-Organisation: Flinders University
