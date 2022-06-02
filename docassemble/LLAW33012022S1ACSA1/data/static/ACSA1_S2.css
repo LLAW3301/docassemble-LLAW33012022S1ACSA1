@@ -106,6 +106,17 @@
 .da-field-buttons {
     text-align: center;
 }
+.da-field-container-note {
+    margin-top: 10px;
+    color: rgb(0,50,110);
+    font-size: 1.1em;
+    margin-top: 30px;
+}
+.daundertext {
+    margin-top: 10px;
+    color: rgb(156,156,157);
+    font-size: 0.9em;
+}
 .btn-primary{
   color: rgb(255,255,255);
   background-color: rgb(0,50,110);

@@ -2,7 +2,7 @@
 #Use Custom CSS File
 features: 
   css: ACSA1_S2.css
-  debug: True
+  debug: False
   hided standard menu: True
 ---
 include:
@@ -10,9 +10,12 @@ include:
 ---
 #AnglicareSA App main
 metadata:
-  title: AnglicareSA Appointments Reminder System
+  title: AnglicareSA Appts Reminder System
   short title: AnglicareSA Appointments
   title url: https://anglicaresa.com.au/?gclid=CjwKCAjws8yUBhA1EiwAi_tpESD_JNhia_bB4fekMp0UDXQ3mxZzqJLO61FEgr_Ao6hdJ4F9zpOguxoCel8QAvD_BwE
+  authors:
+    - name: Erica Boram You, Melanie O'Callaghan, Chloe Lambrusco, and Bailey Bunnik
+      organization: Flinders University
   description: |
     Please use this App to send booking reminders to the client's registered email address.
 ---
@@ -89,13 +92,13 @@ subquestion: |
 
   This application requires you to input client information (including email address, first and last name) and the dates and time for each appointment. 
   
-  *Privacy Statement*
+  ***Privacy Statement***
   
   Privacy is paramount when handling client information. It is vital that the application does not share personal matter between clients. 
   
-  I understand that I have to follow Australian Privacy Principle 6.1, limiting the disclosure of personal information to the primary use intended, defining confidentiality and keeping of client information. 
+  - I understand that I have to follow Australian Privacy Principle 6.1, limiting the disclosure of personal information to the primary use intended, defining confidentiality and keeping of client information. 
   
-  I understand I am bound by s 6A of the *Privacy Act*, to act in accordance with Australian Privacy Principles. 
+  - I understand that I am bound by s 6A of the *Privacy Act*, to act in accordance with Australian Privacy Principles. 
 under: |
   *Privacy Act 1988* (Cth) ss 6A, 14. 
 
@@ -110,9 +113,15 @@ question: |
   Your AnglicareSA Details
 fields:
   - First Name: user.name.first
+    default: |
+      Mary 
   - Last Name: user.name.last
+    default: |
+      Smith
   - Email: user.email
     datatype: email
+    default: |
+      you0022@flinders.edu.au
 progress: 5
 ---
 question: Case Number
@@ -139,10 +148,18 @@ fields:
     - Ms
     - Mrs
     - Miss
+    default: |
+      Ms
   - Last Name: RP.name.last
+    default: |
+      Smith
   - First Name: RP.name.first
+    default: |
+      Jane 
   - Email: RP.email
     datatype: email
+    default: |
+      ocal0052@flinders.edu.au
   - Mobile Phone Number: RP.phone
     minlength: 12
     maxlength: 12
@@ -158,10 +175,18 @@ fields:
     - Ms
     - Mrs
     - Miss
+    default: |
+      Mr 
   - Last Name: NRP.name.last
+    default: |
+      Smith 
   - First Name: NRP.name.first
+    default: |
+      John 
   - Email: NRP.email
     datatype: email
+    default: |
+      bunn0025@flinders.edu.au 
   - Mobile Phone Number: NRP.phone
     minlength: 12
     maxlength: 12
@@ -212,6 +237,8 @@ fields:
     choices: 
     - Mt Baker
     - Noarlunga 
+    default: |
+      Noarlunga 
   - note: For **First Appointment**
   - RP Start Date: RP_appt1.begindate
     datatype: date
@@ -222,7 +249,9 @@ fields:
   - RP Pick-up Time: RP_appt1.endtime
     datatype: time
   - Additional Info for RP: RP_appt1.description
-    required: False 
+    required: False
+    default: |
+      N/A
 section: First Appointment
 progress: 40
 ---
