@@ -1,0 +1,535 @@
+---
+features:
+  css: ACSA1_S2_css
+---
+modules:
+  - .calendar
+---
+template: email_template_RP1
+subject: |
+  AnglicareSA CCS Appointment 1 Reminder
+content: | 
+  Dear ${RP.title}.${RP.name.last},
+  
+  **Location:** ${ RP_appt1.location } 
+  
+  **Date/time:**
+  from ${ format_time(RP_appt1.begintime, 'hh:mm a') } \
+  to ${ format_time(RP_appt1.endtime, 'hh:mm a') } \
+  on ${ RP_appt1.begindate }.
+
+  **Additional Information:**
+  % if RP_appt1.description:
+  ${ RP_appt1.description }
+  % else:
+  N/A
+  % endif
+  
+  Please add this reminder to your calendar. 
+  
+  Thank you. 
+  
+  Sincerely, 
+  
+  
+  AnglicareSA
+---
+template: email_template_RP2
+subject: |
+  AnglicareSA CCS Appointment 2 Reminder
+content: | 
+  Dear ${RP.title}.${RP.name.last},
+  
+  **Location:** ${ RP_appt2.location } 
+  
+  **Date/time:**
+  from ${ format_time(RP_appt2.begintime, 'hh:mm a') } \
+  to ${ format_time(RP_appt2.endtime, 'hh:mm a') } \
+  on ${ RP_appt2.begindate }.
+
+  **Additional Information:**
+  % if RP_appt2.description:
+  ${ RP_appt2.description }
+  % else:
+  N/A
+  % endif
+  
+  Please add this reminder to your calendar. 
+  
+  Thank you. 
+  
+  Sincerely, 
+  
+  AnglicareSA
+---
+template: email_template_RP3
+subject: |
+  AnglicareSA CCS Appointment 3 Reminder
+content: | 
+  Dear ${RP.title}.${RP.name.last},
+  
+  **Location:** ${ RP_appt3.location } 
+  
+  **Date/time:**
+  from ${ format_time(RP_appt3.begintime, 'hh:mm a') } \
+  to ${ format_time(RP_appt3.endtime, 'hh:mm a') } \
+  on ${ RP_appt3.begindate }.
+
+  **Additional Information:**
+  % if RP_appt3.description:
+  ${ RP_appt3.description }
+  % else:
+  N/A
+  % endif
+  
+  Please add this reminder to your calendar. 
+  
+  Thank you. 
+  
+  Sincerely, 
+  
+  
+  AnglicareSA
+---
+template: email_template_RP4
+subject: |
+  AnglicareSA CCS Appointment 4 Reminder
+content: | 
+  Dear ${RP.title}.${RP.name.last},
+  
+  **Location:** ${ RP_appt4.location } 
+  
+  **Date/time:**
+  from ${ format_time(RP_appt4.begintime, 'hh:mm a') } \
+  to ${ format_time(RP_appt4.endtime, 'hh:mm a') } \
+  on ${ RP_appt4.begindate }.
+
+  **Additional Information:**
+  % if RP_appt4.description:
+  ${ RP_appt4.description }
+  % else:
+  N/A
+  % endif
+  
+  Please add this reminder to your calendar. 
+  
+  Thank you. 
+  
+  Sincerely, 
+  
+  
+  AnglicareSA
+---
+template: email_template_RP5
+subject: |
+  AnglicareSA CCS Appointment 5 Reminder
+content: | 
+  Dear ${RP.title}.${RP.name.last},
+  
+  **Location:** ${ RP_appt5.location } 
+  
+  **Date/time:**
+  from ${ format_time(RP_appt5.begintime, 'hh:mm a') } \
+  to ${ format_time(RP_appt5.endtime, 'hh:mm a') } \
+  on ${ RP_appt5.begindate }.
+
+  **Additional Information:**
+  % if RP_appt5.description:
+  ${ RP_appt5.description }
+  % else:
+  N/A
+  % endif
+  
+  Please add this reminder to your calendar. 
+  
+  Thank you. 
+  
+  Sincerely, 
+    
+  
+  AnglicareSA
+---
+template: email_template_RP6
+subject: |
+  AnglicareSA CCS Appointment 6 Reminder
+content: | 
+  Dear ${RP.title}.${RP.name.last},
+  
+  **Location:** ${ RP_appt6.location } 
+  
+  **Date/time:**
+  from ${ format_time(RP_appt6.begintime, 'hh:mm a') } \
+  to ${ format_time(RP_appt6.endtime, 'hh:mm a') } \
+  on ${ RP_appt6.begindate }.
+
+  **Additional Information:**
+  % if RP_appt6.description:
+  ${ RP_appt6.description }
+  % else:
+  N/A
+  % endif
+  
+  Please add this reminder to your calendar. 
+  
+  Thank you. 
+  
+  Sincerely, 
+  
+  
+  AnglicareSA
+---
+template: email_template_NRP1
+subject: |
+  AnglicareSA CCS Appointment 1 Reminder
+content: | 
+  Dear ${NRP.title}.${NRP.name.last},
+  
+  **Location:** ${ NRP_appt1.location } 
+  
+  **Date/time:**
+  from ${ format_time(NRP_appt1.begintime, 'hh:mm a') } \
+  to ${ format_time(NRP_appt1.endtime, 'hh:mm a') } \
+  on ${ NRP_appt1.begindate }.
+
+  **Additional Information:**
+  % if NRP_appt1.description:
+  ${ NRP_appt1.description }
+  % else:
+  N/A
+  % endif
+  
+  Please add this reminder to your calendar. 
+  
+  Thank you. 
+  
+  Sincerely, 
+  
+  
+  AnglicareSA
+---
+template: email_template_NRP2
+subject: |
+  AnglicareSA CCS Appointment 2 Reminder
+content: | 
+  Dear ${NRP.title}.${NRP.name.last},
+  
+  **Location:** ${ NRP_appt2.location } 
+  
+  **Date/time:**
+  from ${ format_time(NRP_appt2.begintime, 'hh:mm a') } \
+  to ${ format_time(NRP_appt2.endtime, 'hh:mm a') } \
+  on ${ NRP_appt2.begindate }.
+
+  **Additional Information:**
+  % if NRP_appt2.description:
+  ${ NRP_appt2.description }
+  % else:
+  N/A
+  % endif
+  
+  Please add this reminder to your calendar. 
+  
+  Thank you. 
+  
+  Sincerely, 
+  
+  
+  AnglicareSA
+---
+template: email_template_NRP3
+subject: |
+  AnglicareSA CCS Appointment 3 Reminder
+content: | 
+  Dear ${NRP.title}.${NRP.name.last},
+  
+  **Location:** ${ NRP_appt3.location } 
+  
+  **Date/time:**
+  from ${ format_time(NRP_appt3.begintime, 'hh:mm a') } \
+  to ${ format_time(NRP_appt3.endtime, 'hh:mm a') } \
+  on ${ NRP_appt3.begindate }.
+
+  **Additional Information:**
+  % if NRP_appt3.description:
+  ${ NRP_appt3.description }
+  % else:
+  N/A
+  % endif
+  
+  Please add this reminder to your calendar. 
+  
+  Thank you. 
+  
+  Sincerely, 
+  
+  
+  AnglicareSA
+---
+template: email_template_NRP4
+subject: |
+  AnglicareSA CCS Appointment 4 Reminder
+content: | 
+  Dear ${NRP.title}.${NRP.name.last},
+  
+  **Location:** ${ NRP_appt4.location } 
+  
+  **Date/time:**
+  from ${ format_time(NRP_appt4.begintime, 'hh:mm a') } \
+  to ${ format_time(NRP_appt4.endtime, 'hh:mm a') } \
+  on ${ NRP_appt4.begindate }.
+
+  **Additional Information:**
+  % if NRP_appt4.description:
+  ${ NRP_appt4.description }
+  % else:
+  N/A
+  % endif
+  
+  Please add this reminder to your calendar. 
+  
+  Thank you. 
+  
+  Sincerely, 
+  
+  
+  AnglicareSA
+
+---
+template: email_template_NRP5
+subject: |
+  AnglicareSA CCS Appointment 5 Reminder
+content: | 
+  Dear ${NRP.title}.${NRP.name.last},
+  
+  **Location:** ${ NRP_appt5.location } 
+  
+  **Date/time:**
+  from ${ format_time(NRP_appt5.begintime, 'hh:mm a') } \
+  to ${ format_time(NRP_appt5.endtime, 'hh:mm a') } \
+  on ${ NRP_appt5.begindate }.
+
+  **Additional Information:**
+  % if NRP_appt5.description:
+  ${ NRP_appt5.description }
+  % else:
+  N/A
+  % endif
+  
+  Please add this reminder to your calendar. 
+  
+  Thank you. 
+  
+  Sincerely, 
+  
+  
+  AnglicareSA
+---
+template: email_template_NRP6
+subject: |
+  AnglicareSA CCS Appointment 6 Reminder
+content: | 
+  Dear ${NRP.title}.${NRP.name.last},
+  
+  **Location:** ${ NRP_appt6.location } 
+  
+  **Date/time:**
+  from ${ format_time(NRP_appt6.begintime, 'hh:mm a') } \
+  to ${ format_time(NRP_appt6.endtime, 'hh:mm a') } \
+  on ${ NRP_appt6.begindate }.
+
+  **Additional Information:**
+  % if NRP_appt6.description:
+  ${ NRP_appt6.description }
+  % else:
+  N/A
+  % endif
+  
+  Please add this reminder to your calendar. 
+  
+  Thank you. 
+  
+  Sincerely, 
+  
+  
+  AnglicareSA
+---
+code: |
+  ics_file_RP1 = make_event(title='AnglicareSA CCS Appt1',
+                        location=RP_appt1.location,
+                        description=RP_appt1.description,
+                        begin_date=RP_appt1.begindate,
+                        begin_time=RP_appt1.begintime,
+                        end_date=RP_appt1.enddate,
+                        end_time=RP_appt1.endtime,
+                        organizer=user)
+---
+code: |
+  ics_file_RP2 = make_event(title='AnglicareSA CCS Appt2',
+                        location=RP_appt2.location,
+                        description=RP_appt2.description,
+                        begin_date=RP_appt2.begindate,
+                        begin_time=RP_appt2.begintime,
+                        end_date=RP_appt2.enddate,
+                        end_time=RP_appt2.endtime,
+                        organizer=user)
+---
+code: |
+  ics_file_RP3 = make_event(title='AnglicareSA CCS Appt3',
+                        location=RP_appt3.location,
+                        description=RP_appt3.description,
+                        begin_date=RP_appt3.begindate,
+                        begin_time=RP_appt3.begintime,
+                        end_date=RP_appt3.enddate,
+                        end_time=RP_appt3.endtime,
+                        organizer=user)
+---
+code: |
+  ics_file_RP4 = make_event(title='AnglicareSA CCS Appt4',
+                        location=RP_appt4.location,
+                        description=RP_appt4.description,
+                        begin_date=RP_appt4.begindate,
+                        begin_time=RP_appt4.begintime,
+                        end_date=RP_appt4.enddate,
+                        end_time=RP_appt4.endtime,
+                        organizer=user)
+---
+code: |
+  ics_file_RP5 = make_event(title='AnglicareSA CCS Appt5',
+                        location=RP_appt5.location,
+                        description=RP_appt5.description,
+                        begin_date=RP_appt5.begindate,
+                        begin_time=RP_appt5.begintime,
+                        end_date=RP_appt5.enddate,
+                        end_time=RP_appt5.endtime,
+                        organizer=user)
+---
+code: |
+  ics_file_RP6 = make_event(title='AnglicareSA CCS Appt6',
+                        location=RP_appt6.location,
+                        description=RP_appt6.description,
+                        begin_date=RP_appt6.begindate,
+                        begin_time=RP_appt6.begintime,
+                        end_date=RP_appt6.enddate,
+                        end_time=RP_appt6.endtime,
+                        organizer=user)
+---
+code: |
+  ics_file_NRP1 = make_event(title='AnglicareSA CCS Appt1',
+                        location=NRP_appt1.location,
+                        description=NRP_appt1.description,
+                        begin_date=NRP_appt1.begindate,
+                        begin_time=NRP_appt1.begintime,
+                        end_date=NRP_appt1.enddate,
+                        end_time=NRP_appt1.endtime,
+                        organizer=user)
+---
+code: |
+  ics_file_NRP2 = make_event(title='AnglicareSA CCS Appt2',
+                        location=NRP_appt2.location,
+                        description=NRP_appt2.description,
+                        begin_date=NRP_appt2.begindate,
+                        begin_time=NRP_appt2.begintime,
+                        end_date=NRP_appt2.enddate,
+                        end_time=NRP_appt2.endtime,
+                        organizer=user)
+---
+code: |
+  ics_file_NRP3 = make_event(title='AnglicareSA CCS Appt3',
+                        location=NRP_appt3.location,
+                        description=NRP_appt3.description,
+                        begin_date=NRP_appt3.begindate,
+                        begin_time=NRP_appt3.begintime,
+                        end_date=NRP_appt3.enddate,
+                        end_time=NRP_appt3.endtime,
+                        organizer=user)
+---
+code: |
+  ics_file_NRP4 = make_event(title='AnglicareSA CCS Appt4',
+                        location=NRP_appt4.location,
+                        description=NRP_appt4.description,
+                        begin_date=NRP_appt4.begindate,
+                        begin_time=NRP_appt4.begintime,
+                        end_date=NRP_appt4.enddate,
+                        end_time=NRP_appt4.endtime,
+                        organizer=user)
+---
+code: |
+  ics_file_NRP5 = make_event(title='AnglicareSA CCS Appt5',
+                        location=NRP_appt5.location,
+                        description=NRP_appt5.description,
+                        begin_date=NRP_appt5.begindate,
+                        begin_time=NRP_appt5.begintime,
+                        end_date=NRP_appt5.enddate,
+                        end_time=NRP_appt5.endtime,
+                        organizer=user)
+---
+code: |
+  ics_file_NRP6 = make_event(title='AnglicareSA CCS Appt6',
+                        location=NRP_appt6.location,
+                        description=NRP_appt6.description,
+                        begin_date=NRP_appt6.begindate,
+                        begin_time=NRP_appt6.begintime,
+                        end_date=NRP_appt6.enddate,
+                        end_time=NRP_appt6.endtime,
+                        organizer=user)
+---
+code: |
+  email_sent_RP1 = send_email(to=RP.email,
+                          template=email_template_RP1,
+                          attachments=ics_file_RP1)
+---
+code: |
+  email_sent_RP2 = send_email(to=RP.email,
+                          template=email_template_RP2,
+                          attachments=ics_file_RP2)
+---
+code: |
+  email_sent_RP3 = send_email(to=RP.email,
+                          template=email_template_RP3,
+                          attachments=ics_file_RP3)
+---
+code: |
+  email_sent_RP4 = send_email(to=RP.email,
+                          template=email_template_RP4,
+                          attachments=ics_file_RP4)
+---
+code: |
+  email_sent_RP5 = send_email(to=RP.email,
+                          template=email_template_RP5,
+                          attachments=ics_file_RP5)
+---
+code: |
+  email_sent_RP6 = send_email(to=RP.email,
+                          template=email_template_RP6,
+                          attachments=ics_file_RP6)
+---
+code: |
+  email_sent_NRP1 = send_email(to=NRP.email,
+                          template=email_template_NRP1,
+                          attachments=ics_file_NRP1)
+---
+code: |
+  email_sent_NRP2 = send_email(to=NRP.email,
+                          template=email_template_NRP2,
+                          attachments=ics_file_NRP2)
+---
+code: |
+  email_sent_NRP3 = send_email(to=NRP.email,
+                          template=email_template_NRP3,
+                          attachments=ics_file_NRP3)
+---
+code: |
+  email_sent_NRP4 = send_email(to=NRP.email,
+                          template=email_template_NRP4,
+                          attachments=ics_file_NRP4)
+---
+code: |
+  email_sent_NRP5 = send_email(to=NRP.email,
+                          template=email_template_NRP5,
+                          attachments=ics_file_NRP5)
+---
+code: |
+  email_sent_NRP6 = send_email(to=NRP.email,
+                          template=email_template_NRP6,
+                          attachments=ics_file_NRP6)
+---
