@@ -1,9 +1,9 @@
 ---
 #Use Custom CSS File
 features: 
-  css: ACSA1_S2.css
   debug: False
-  hided standard menu: True
+  css: ACSA1_S2.css
+  hide standard menu: True
 ---
 include:
   - ACSA1_S2_email_final.yml
@@ -463,7 +463,7 @@ progress: 65
 ---
 question: Follow Up Appointments for NRP
 subquestion: |
-  Please ensure the below appointmnet details are correct. 
+  Please ensure the below appointment details are correct. 
 fields:
   - note: For **Second Appointment** 
   - Start Date: NRP_appt2.begindate
