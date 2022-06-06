@@ -23,7 +23,7 @@ fields:
   - Location: RP_appt2.location
     datatype: dropdown
     choices: 
-    - Mt Baker
+    - Mt Barker
     - Noarlunga
     default: |
       ${ RP_appt1.location }      
@@ -50,7 +50,7 @@ fields:
   - Location: RP_appt3.location
     datatype: dropdown
     choices: 
-    - Mt Baker
+    - Mt Barker
     - Noarlunga
     default: |
       ${ RP_appt1.location }      
@@ -77,7 +77,7 @@ fields:
   - Location: RP_appt4.location
     datatype: dropdown
     choices: 
-    - Mt Baker
+    - Mt Barker
     - Noarlunga
     default: |
       ${ RP_appt1.location }      
@@ -104,7 +104,7 @@ fields:
   - Location: RP_appt5.location
     datatype: dropdown
     choices: 
-    - Mt Baker
+    - Mt Barker
     - Noarlunga
     default: |
       ${ RP_appt1.location }      
@@ -131,7 +131,7 @@ fields:
   - Location: RP_appt6.location
     datatype: dropdown
     choices: 
-    - Mt Baker
+    - Mt Barker
     - Noarlunga
     default: |
       ${ RP_appt1.location }      
@@ -164,7 +164,7 @@ fields:
   - Location: NRP_appt2.location
     datatype: dropdown
     choices: 
-    - Mt Baker
+    - Mt Barker
     - Noarlunga
     default: |
       ${ NRP_appt1.location }      
@@ -191,7 +191,7 @@ fields:
   - Location: NRP_appt3.location
     datatype: dropdown
     choices: 
-    - Mt Baker
+    - Mt Barker
     - Noarlunga
     default: |
       ${ NRP_appt1.location }      
@@ -218,7 +218,7 @@ fields:
   - Location: NRP_appt4.location
     datatype: dropdown
     choices: 
-    - Mt Baker
+    - Mt Barker
     - Noarlunga
     default: |
       ${ NRP_appt1.location }      
@@ -245,7 +245,7 @@ fields:
   - Location: NRP_appt5.location
     datatype: dropdown
     choices: 
-    - Mt Baker
+    - Mt Barker
     - Noarlunga
     default: |
       ${ NRP_appt1.location }      
@@ -272,7 +272,7 @@ fields:
   - Location: NRP_appt6.location
     datatype: dropdown
     choices: 
-    - Mt Baker
+    - Mt Barker
     - Noarlunga
     default: |
       ${ NRP_appt1.location }      
