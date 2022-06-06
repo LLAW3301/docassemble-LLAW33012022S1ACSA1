@@ -79,9 +79,9 @@ code: |
       instructions_to_NRP_Noarlunga
       PDF_Noarlunga
     else: 
-      instructions_to_RP_Mt_Baker
-      instructions_to_NRP_Mt_Baker
-      PDF_Mt_Baker
+      instructions_to_RP_Mt_Barker
+      instructions_to_NRP_Mt_Barker
+      PDF_Mt_Barker
 ---
 code: |
   ACdisplay_Welcome_screen = True
@@ -230,11 +230,11 @@ section: PDFs Download
 ---
 attachment: 
   name: AnglicareSA - Appt Details for ${RP.title}.${RP.name.last}
-  variable name: RP_Mt_Baker_location
+  variable name: RP_Mt_Barker_location
   filename: AnglicareSA - Appt Details for ${RP.title}.${RP.name.last}
-  docx template file: PDF_Mt_Baker_location_RP.docx
+  docx template file: PDF_Mt_Barker_location_RP.docx
 ---
-template: RP_Mt_Baker_email
+template: RP_Mt_Barker_email
 subject: |
   AnglicareSA: Appointments Details for ${RP.name.first} ${RP.name.last} 
 content: |
@@ -244,7 +244,7 @@ content: |
   
   **Anglicare Child Contact Service centre** 
   
-  Family House, 3 Willow Close, Mt Baker 
+  Family House, 3 Willow Close, Mt Barker 
   
   **Ph:** 0411 743 056 (weekends only)
 
@@ -259,11 +259,11 @@ content: |
 ---
 attachment:
   name: AnglicareSA - Appt Details for ${NRP.title}.${NRP.name.last}
-  variable name: NRP_Mt_Baker_location
+  variable name: NRP_Mt_Barker_location
   filenmae: AnglicareSA - Appt Details for ${NRP.title}.${NRP.name.last}
-  docx template file: PDF_Mt_Baker_location_NRP.docx
+  docx template file: PDF_Mt_Barker_location_NRP.docx
 ---
-template: NRP_Mt_Baker_email
+template: NRP_Mt_Barker_email
 subject: |
   AnglicareSA: Appointments Details for ${NRP.name.first} ${NRP.name.last} 
 content: |
@@ -273,7 +273,7 @@ content: |
   
   **Anglicare Child Contact Service centre** 
   
-  Family House, 3 Willow Close, Mt Baker 
+  Family House, 3 Willow Close, Mt Barker 
   
   **Ph:** 0411 743 056 (weekends only)
 
@@ -286,14 +286,14 @@ content: |
   AnglicareSA
 ---
 code: |
-  success_sending_emailRPB = send_email(to=RP.email, template=RP_Mt_Baker_email, attachments=RP_Mt_Baker_location.pdf)
-  instructions_to_RP_Mt_Baker = True
+  success_sending_emailRPB = send_email(to=RP.email, template=RP_Mt_Barker_email, attachments=RP_Mt_Barker_location.pdf)
+  instructions_to_RP_Mt_Barker = True
 ---
 code: |
-  success_sending_emailNRPB = send_email(to=NRP.email, template=NRP_Mt_Baker_email, attachments=NRP_Mt_Baker_location.pdf)
-  instructions_to_NRP_Mt_Baker = True
+  success_sending_emailNRPB = send_email(to=NRP.email, template=NRP_Mt_Barker_email, attachments=NRP_Mt_Barker_location.pdf)
+  instructions_to_NRP_Mt_Barker = True
 ---
-event: PDF_Mt_Baker
+event: PDF_Mt_Barker
 question: PDF documents for ${RP.case}
 subquestion: |
 
@@ -317,7 +317,7 @@ subquestion: |
   % endif
 
 attachment code: |
-  [RP_Mt_Baker_location, NRP_Mt_Baker_location]
+  [RP_Mt_Barker_location, NRP_Mt_Barker_location]
 
 buttons:
   - New Case: restart

@@ -6,23 +6,36 @@ fields:
   - Location: RP_appt1.location
     datatype: dropdown
     choices: 
-    - Mt Baker
+    - Mt Barker
     - Noarlunga 
     default: |
       Noarlunga 
   - note: For **First Appointment**
   - RP Start Date: RP_appt1.begindate
     datatype: date
+    default: |
+      ${ today() }
   - RP End Date: RP_appt1.enddate
     datatype: date
+    default: |
+      ${ today() }
   - RP Arrival Time: RP_appt1.begintime
     datatype: time
+    default: |
+      ${ "12:45:00" }
   - RP Pick-up Time: RP_appt1.endtime
     datatype: time
+    default: |
+      ${ "14:35:00" }
   - Additional Info for RP: RP_appt1.description
     required: False
     default: |
       N/A
+validation code: |
+  if RP_appt1.enddate < RP_appt1.begindate:
+    raise DAValidationError('The end date must be on or after the start date.', field='event.end_date')
+  if RP_appt1.enddate.replace_time(RP_appt1.endtime) < RP_appt1.begindate.replace_time(RP_appt1.begintime):
+    raise DAValidationError('The end time must be on or after the start time.', field='event.end_time')
 section: First Appointment
 progress: 40
 ---
@@ -33,7 +46,7 @@ fields:
   - Location: NRP_appt1.location
     datatype: dropdown
     choices: 
-    - Mt Baker
+    - Mt Barker
     - Noarlunga
     default: |
       ${ RP_appt1.location }
@@ -48,10 +61,19 @@ fields:
       ${ RP_appt1.enddate }
   - NRP Arrival Time: NRP_appt1.begintime
     datatype: time
+    default: |
+      ${ "12:55:00" }
   - NRP Departure Time: NRP_appt1.endtime
     datatype: time
+    default: |
+      ${ "14:45:00" }
   - Additional Info for NRP: NRP_appt1.description
     required: False 
+validation code: |
+  if NRP_appt1.enddate < NRP_appt1.begindate:
+    raise DAValidationError('The end date must be on or after the start date.', field='event.end_date')
+  if NRP_appt1.enddate.replace_time(NRP_appt1.endtime) < NRP_appt1.begindate.replace_time(NRP_appt1.begintime):
+    raise DAValidationError('The end time must be on or after the start time.', field='event.end_time')
 progress: 50
 ---
 code: |

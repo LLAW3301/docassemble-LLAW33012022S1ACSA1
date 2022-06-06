@@ -57,7 +57,7 @@ fields:
   - Mobile Phone Number: RP.phone
     minlength: 12
     maxlength: 12
-    default: '+61'
+    default: '+61456456456'
  
   - note: For **NRP**
     help: |
@@ -84,7 +84,7 @@ fields:
   - Mobile Phone Number: NRP.phone
     minlength: 12
     maxlength: 12
-    default: '+61'
+    default: '+61123123123'
 progress: 20
 ---
 code: |
