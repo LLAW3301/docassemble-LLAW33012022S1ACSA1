@@ -45,7 +45,7 @@ def find_package_data(where='.', package='', exclude=standard_exclude, exclude_d
 setup(name='docassemble.LLAW33012022S1ACSA1',
       version='0.0.1',
       description=('S2 Final'),
-      long_description="**AnglicareSA Appts Reminder Web-App**\r\n\r\nOur application is an appointment reminder system, created for the AnglicareSA staffs to send appointment reminders to their clients. It sends out six email reminders with .ics file and one email with a PDF entailing the location and time details for six appointments. The clients may add those reminders to their mobile calander for their future reference. \r\n\r\n**Authors**\r\n\r\nErica Boram You, Melanie O'Callaghan, Chloe Lambrusco, and Bailey\r\nBunnik\r\n\r\nOrganisation: Flinders University\r\n",
+      long_description="**AnglicareSA Appts Reminder Web-App**\r\n\r\nOur application is an appointment reminder system, created for the AnglicareSA staffs to use to send reminder to their clients. It sends out an email with a PDF entailing the location and time details for six appointments and six email reminders with .ics file for each appointment. The clients may add those reminders to their mobile calendar for their future reference.\r\n\r\n**Authors**\r\n\r\nErica Boram You, Melanie O'Callaghan, Chloe Lambrusco, and Bailey Bunnik\r\n\r\nOrganisation: Flinders University\r\n",
       long_description_content_type='text/markdown',
       author='Erica You',
       author_email='you0022@flinders.edu.au',
